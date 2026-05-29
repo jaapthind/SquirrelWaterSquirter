@@ -42,7 +42,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             overflow: hidden; 
-            height: 100vh;
+            height: auto;
             width: 100vw;
             display: flex;
             align-items: center;
@@ -149,10 +149,11 @@
         }
 
         .app-container {
-            width: 100%;
-            max-width: 1900px; 
-            height: 96vh; 
-            
+
+            height: auto; /* Change from 98vh to auto */
+            min-height: 95vh; /* Keep a minimum height */
+            overflow: visible; /* Content will no longer be clipped */
+            margin: 2vh auto;
             /* EXTREME LIQUID GLASS */
             background-color: var(--bg-card-main);
             backdrop-filter: var(--glass-blur);
@@ -168,7 +169,6 @@
             gap: var(--space-12);
             position: relative;
             z-index: 10;
-            overflow: hidden;
         }
 
         /* ==========================================================================
