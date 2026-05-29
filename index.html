@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Squirrel Water Squirter - Secure Your Fruit, Save Your Harvest.">
-    <meta name="theme-color" content="#d4f2f0">
+    <meta name="theme-color" content="#ffffff">
     <title>Squirrel Water Squirter | Finally Save Your Fruit</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           1. CSS RESET & NORMALIZE (Comprehensive)
+           1. CSS RESET & NORMALIZE
            ========================================================================== */
         *, *::before, *::after {
             box-sizing: border-box;
@@ -30,229 +30,153 @@
             height: 100%;
         }
 
+        @keyframes rainbowBg {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
             margin: 0;
             text-rendering: optimizeLegibility;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow: hidden; /* Strict constraint: No/Minimal scroll */
+            overflow: hidden; 
             height: 100vh;
             width: 100vw;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Minimal spacing as requested */
-            padding: 1vh 1vw; 
-            background: linear-gradient(135deg, var(--bg-page-start) 0%, var(--bg-page-end) 100%);
+            padding: 2vh 2vw; 
+            
+            /* RAINBOW GRADIENT MOVING BACKGROUND */
+            background: linear-gradient(-45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #00ffff, #0000ff, #8b00ff);
+            background-size: 400% 400%;
+            animation: rainbowBg 12s ease infinite;
+            
             font-family: var(--font-sans);
             color: var(--text-primary);
             position: relative;
         }
 
-        main, article, aside, figcaption, figure, footer, header, hgroup, section {
-            display: block;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-size: 100%;
-            font-weight: normal;
-        }
-
-        ul, ol {
-            list-style: none;
-        }
-
-        a {
-            background-color: transparent;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img, svg {
-            border-style: none;
-            vertical-align: middle;
-            max-width: 100%;
-            height: auto;
-        }
-
-        button, input, optgroup, select, textarea {
-            font-family: inherit;
-            font-size: 100%;
-            line-height: 1.15;
-            margin: 0;
-            border: none;
-            background: none;
-        }
-
-        button, [type="button"], [type="reset"], [type="submit"] {
-            -webkit-appearance: button;
-            cursor: pointer;
-        }
-
-        button::-moz-focus-inner,
-        [type="button"]::-moz-focus-inner,
-        [type="reset"]::-moz-focus-inner,
-        [type="submit"]::-moz-focus-inner {
-            border-style: none;
-            padding: 0;
-        }
+        main, article, aside, figcaption, figure, footer, header, hgroup, section { display: block; }
+        h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal; }
+        ul, ol { list-style: none; }
+        a { background-color: transparent; text-decoration: none; color: inherit; }
+        img, svg { border-style: none; vertical-align: middle; max-width: 100%; height: auto; }
+        button, input, optgroup, select, textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0; border: none; background: none; }
+        button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; cursor: pointer; }
 
         /* ==========================================================================
-           2. DESIGN SYSTEM VARIABLES (Extensive Tokenization)
+           2. DESIGN SYSTEM VARIABLES (MASSIVE TEXT & LIQUID GLASS)
            ========================================================================== */
         :root {
-            /* Colors: Backgrounds */
-            --bg-page-start: #dcf7f5;
-            --bg-page-end: #e2f7eb;
-            --bg-card-main: #d0f0eb;
+            /* Colors: Extremely Liquid Glass Translucency */
+            --bg-card-main: rgba(255, 255, 255, 0.45);
+            --bg-white-trans: rgba(255, 255, 255, 0.6);
             --bg-white-pure: #ffffff;
-            --bg-white-trans: rgba(255, 255, 255, 0.95); /* More opaque, less 3D glass */
-            --bg-image-placeholder: #a8b8b0;
             
-            /* Colors: Text & Typography */
-            --text-primary: #1f3d2b;
-            --text-secondary: #3b6b4d;
-            --text-tertiary: #5c8a6f;
-            --text-highlight: #34d399;
-            --text-title-start: #148f63;
-            --text-title-end: #3bc965;
-            --text-link: #059669;
-            --text-error: #ef4444;
+            /* Colors: High Contrast Text for Readability */
+            --text-primary: #0a1f11;
+            --text-secondary: #12381e;
+            --text-tertiary: #194a28;
+            --text-title-start: #004d2b;
+            --text-title-end: #003319;
+            --text-link: #0033cc;
+            --text-error: #cc0000;
 
             /* Colors: UI Elements */
-            --ui-border-light: rgba(255, 255, 255, 0.8);
-            --ui-border-solid: #e2e8f0;
-            --ui-accent-green: #22c55e;
-            --ui-accent-yellow: #f59e0b;
+            --ui-border-glass: rgba(255, 255, 255, 0.8);
+            --ui-accent-green: #059669;
             
             /* Typography: Families */
             --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
             --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             
-            /* Typography: Sizes */
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
-            --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            --text-3xl: 1.875rem;
-            --text-4xl: 2.25rem;
-            --text-5xl: 3rem;
-            --text-6xl: 3.75rem;
-            --text-7xl: 4.5rem;
-            --text-8xl: 6rem;
+            /* Typography: MASSIVELY INCREASED SIZES */
+            --text-xs: 1.1rem;
+            --text-sm: 1.3rem;
+            --text-base: 1.6rem;
+            --text-lg: 1.9rem;
+            --text-xl: 2.4rem;
+            --text-2xl: 3.2rem;
+            --text-3xl: 4.0rem;
+            --text-4xl: 5.0rem;
+            --text-5xl: 6.5rem;
+            --text-6xl: 8.0rem;
 
-            /* Typography: Weights */
-            --font-light: 300;
-            --font-normal: 400;
-            --font-medium: 500;
-            --font-semibold: 600;
-            --font-bold: 700;
-            --font-extrabold: 800;
+            /* Typography: Weights (Bolder for readability) */
+            --font-medium: 600;
+            --font-semibold: 700;
+            --font-bold: 800;
+            --font-extrabold: 900;
             --font-black: 900;
 
             /* Spacing Metrics */
-            --space-0: 0px;
-            --space-1: 0.25rem;
             --space-2: 0.5rem;
             --space-3: 0.75rem;
-            --space-4: 1rem;
-            --space-5: 1.25rem;
-            --space-6: 1.5rem;
-            --space-8: 2rem;
-            --space-10: 2.5rem;
-            --space-12: 3rem;
-            --space-16: 4rem;
-            --space-20: 5rem;
-            --space-24: 6rem;
-            --space-32: 8rem;
-            --space-40: 10rem;
-            --space-48: 12rem;
-            --space-64: 16rem;
+            --space-4: 1.2rem;
+            --space-6: 2rem;
+            --space-8: 3rem;
+            --space-12: 4.5rem;
 
-            /* Radii - Flattened slightly for less 3D pop */
-            --radius-none: 0;
-            --radius-sm: 0.125rem;
-            --radius-md: 0.375rem;
-            --radius-lg: 0.5rem;
-            --radius-xl: 0.75rem;
-            --radius-2xl: 1rem;
-            --radius-3xl: 1.5rem;
-            --radius-4xl: 2rem;
+            /* Radii - Liquid bubbles */
+            --radius-md: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
+            --radius-2xl: 2.5rem;
             --radius-full: 9999px;
 
-            /* Shadows - Flattened to remove 3D plate effect */
-            --shadow-sm: none;
-            --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.05);
-            --shadow-lg: 0 4px 10px rgba(0, 0, 0, 0.05);
-            --shadow-xl: 0 10px 20px rgba(0, 0, 0, 0.05);
-            --shadow-2xl: 0 10px 30px rgba(0, 0, 0, 0.08); /* Minimal flat shadow */
-            --shadow-inner: none; /* Removed inner shadow for 2D look */
-            --shadow-glow: none;
-
-            /* Z-Index Hierarchy */
-            --z-bg: -10;
-            --z-base: 0;
-            --z-content: 10;
-            --z-overlay: 100;
-            --z-modal: 1000;
-            --z-toast: 2000;
-
-            /* Transitions */
-            --transition-fast: 150ms ease;
-            --transition-normal: 300ms ease;
-            --transition-slow: 500ms ease;
-            --transition-bounce: 500ms ease; /* Removed bouncy 3D curves */
+            /* Shadows - EXTREME LIQUID GLASS */
+            --glass-blur: blur(25px);
+            --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            --highlight-glass: inset 0 0 20px rgba(255, 255, 255, 0.9), inset 0 2px 0 rgba(255, 255, 255, 1);
         }
 
         /* ==========================================================================
-           3. CORE LAYOUT ARCHITECTURE
+           3. CORE LAYOUT ARCHITECTURE (LIQUID GLASS)
            ========================================================================== */
-
-        /* Ambient Background Effect - Flattened */
+        
         .ambient-glow {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            width: 100vw;
-            height: 100vh;
-            background: rgba(255,255,255,0.2);
-            z-index: var(--z-bg);
+            width: 100vw; height: 100vh;
+            background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+            z-index: -1;
             pointer-events: none;
         }
 
-        /* Main Container - "Zoomed In" & "Not 3D" */
         .app-container {
             width: 100%;
-            max-width: 1800px; /* Massively expanded to fill screen */
-            height: 98vh; /* Massively expanded to fill screen */
-            max-height: none; /* Remove height restrictions */
+            max-width: 1900px; 
+            height: 96vh; 
+            
+            /* EXTREME LIQUID GLASS */
             background-color: var(--bg-card-main);
-            border-radius: var(--radius-2xl); /* Tighter corners for full screen feel */
-            box-shadow: var(--shadow-2xl); /* Flat, non-3D shadow */
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-2xl); 
+            box-shadow: var(--shadow-glass); 
+            border: 2px solid var(--ui-border-glass);
+            box-shadow: var(--highlight-glass), var(--shadow-glass);
+            
             display: grid;
-            grid-template-columns: 1.2fr 1fr; /* Image takes slightly more space when zoomed */
+            grid-template-columns: 1.2fr 1fr; 
             padding: var(--space-6);
             gap: var(--space-12);
             position: relative;
-            z-index: var(--z-content);
+            z-index: 10;
             overflow: hidden;
-            border: 2px solid var(--bg-white-pure); /* Flat border instead of inset 3D shadow */
-            /* Removed backdrop-filter for a flatter 2D plate look */
-        }
-
-        /* Inner Ring Decoration - Removed to keep it flat */
-        .decoration-ring {
-            display: none;
         }
 
         /* ==========================================================================
-           4. LEFT COLUMN: VISUAL/ILLUSTRATION (FLAT 2D)
+           4. LEFT COLUMN: IMAGE SECTION (CONTAIN TO PREVENT CROPPING)
            ========================================================================== */
         .visual-column {
-            background-color: var(--bg-image-placeholder);
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: var(--radius-xl);
             height: 100%;
             position: relative;
@@ -260,134 +184,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: none; /* Flat */
-            /* Removed transition & box shadow */
+            border: 2px solid rgba(255,255,255,0.6);
+            box-shadow: inset 0 0 30px rgba(255,255,255,0.5);
+            padding: var(--space-2);
         }
 
-        /* SVG Placeholder Pattern Generator */
-        .visual-column::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: radial-gradient(var(--bg-white-pure) 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 0.2;
-        }
-
-        /* Placeholder UI Elements simulating the Tree/Squirrel - Completely 2D */
-        .placeholder-scene {
-            position: relative;
+        .visual-column img {
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
+            /* FIX FOR CROPPING: CONTAIN ensures the whole image fits inside without clipping */
+            object-fit: contain; 
+            display: block;
+            border-radius: inherit;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
         }
-
-        .placeholder-text {
-            background: var(--bg-white-pure);
-            color: var(--text-primary);
-            padding: var(--space-4) var(--space-8);
-            border-radius: var(--radius-sm);
-            font-weight: var(--font-black);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: var(--text-lg);
-            border: 3px solid var(--text-primary);
-            margin-top: var(--space-8);
-            /* Removed animation for flat/static look */
-        }
-
-        /* Flat geometrical representation of the illustration */
-        .abstract-tree {
-            width: 120px; /* Zoomed in */
-            height: 450px; /* Zoomed in */
-            background: #8b5a2b; /* Flat color */
-            position: relative;
-            /* Removed box-shadow */
-        }
-
-        .abstract-baffle {
-            position: absolute;
-            top: 200px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 240px;
-            height: 30px;
-            background: #ffd700;
-            border: 4px solid #daa520; /* Flat border instead of shadow */
-        }
-
-        .abstract-baffle::after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 140px;
-            height: 180px;
-            background: #e0e0e0;
-            border: 4px solid #bdbdbd;
-            border-top: none;
-            /* Removed repeating gradient for flat look */
-        }
-
-        .abstract-leaves {
-            position: absolute;
-            top: -150px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 350px;
-            height: 350px;
-            background: #2e8b57;
-            border-radius: 50%;
-            /* Removed complex 3D shadows, replaced with flat shapes */
-        }
-        
-        .abstract-leaves::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: -40px;
-            width: 200px;
-            height: 200px;
-            background: #228b22;
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .abstract-leaves::after {
-            content: '';
-            position: absolute;
-            bottom: 20px;
-            right: -40px;
-            width: 250px;
-            height: 250px;
-            background: #3cb371;
-            border-radius: 50%;
-            z-index: -1;
-        }
-
-        .abstract-apple {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #ff4500;
-            border-radius: 50%;
-            border: 3px solid #cc3700; /* Flat border */
-        }
-        .apple-1 { top: 60px; left: 80px; }
-        .apple-2 { top: 120px; right: 70px; }
-        .apple-3 { top: 220px; left: 140px; }
-        .apple-4 { top: 150px; left: 240px; }
 
         /* ==========================================================================
-           5. RIGHT COLUMN: CONTENT & TYPOGRAPHY
+           5. RIGHT COLUMN: CONTENT & MASSIVE TYPOGRAPHY
            ========================================================================== */
         .content-column {
             display: flex;
@@ -398,40 +211,42 @@
             position: relative;
         }
 
-        /* Typography Components - Zoomed in sizing */
         .product-heading {
             font-family: var(--font-serif);
-            font-size: 6.5rem; /* Zoomed in */
+            font-size: var(--text-6xl); 
             line-height: 0.95;
             font-weight: var(--font-extrabold);
             letter-spacing: -2px;
             margin-bottom: var(--space-4);
             color: var(--text-title-start);
-            /* Removed gradient and shadow for flat 2D look */
+            text-shadow: 2px 4px 10px rgba(255,255,255,0.8);
         }
 
         .product-subheading {
             font-family: var(--font-sans);
-            font-size: var(--text-2xl); /* Zoomed in */
-            font-weight: var(--font-semibold);
+            font-size: var(--text-2xl); 
+            font-weight: var(--font-bold);
             color: var(--text-primary);
-            line-height: 1.4;
+            line-height: 1.3;
             max-width: 95%;
             margin-bottom: var(--space-6);
+            text-shadow: 0 2px 5px rgba(255,255,255,0.8);
         }
 
         /* ==========================================================================
-           6. OFFER CARD COMPONENT (FLAT 2D)
+           6. OFFER CARD COMPONENT (LIQUID GLASS)
            ========================================================================== */
         .card-offer {
-            background-color: var(--bg-white-pure);
+            background-color: var(--bg-white-trans);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             border-radius: var(--radius-xl);
             padding: var(--space-6);
             position: relative;
             margin-bottom: var(--space-6);
-            border: 2px solid var(--ui-border-solid); /* Flat border */
-            border-left: 8px solid var(--ui-accent-green);
-            /* Removed hover transforms and shadows */
+            border: 2px solid var(--ui-border-glass); 
+            border-left: 12px solid var(--ui-accent-green);
+            box-shadow: var(--shadow-glass), inset 0 0 15px rgba(255,255,255,0.8);
         }
 
         .offer-header {
@@ -441,65 +256,71 @@
             margin-bottom: var(--space-3);
         }
 
-        .offer-icon {
-            font-size: var(--text-2xl);
-            display: inline-block;
-            /* Removed wiggle animation */
-        }
+        .offer-icon { font-size: var(--text-3xl); }
 
         .offer-title {
             color: var(--ui-accent-green);
             font-weight: var(--font-black);
             text-transform: uppercase;
-            font-size: var(--text-xl);
-            letter-spacing: 0.5px;
+            font-size: var(--text-2xl);
+            letter-spacing: 1px;
+            text-shadow: 0 1px 2px rgba(255,255,255,1);
         }
 
         .offer-body {
-            font-size: var(--text-lg);
+            font-size: var(--text-xl);
             color: var(--text-primary);
             margin-bottom: var(--space-4);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-weight: var(--font-medium);
         }
 
         .offer-highlight {
-            font-weight: var(--font-extrabold);
-            background: rgba(34, 197, 94, 0.1);
-            padding: 0 4px;
+            font-weight: var(--font-black);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 4px 8px;
+            border-radius: 8px;
         }
 
         .offer-contact {
-            font-size: var(--text-base);
+            font-size: var(--text-lg);
             color: var(--text-secondary);
             line-height: 1.6;
+            font-weight: var(--font-bold);
         }
 
         .offer-link {
             color: var(--text-link);
-            font-weight: var(--font-bold);
+            font-weight: var(--font-black);
             text-decoration: underline;
-            text-underline-offset: 4px;
+            text-underline-offset: 6px;
+            background: rgba(255,255,255,0.5);
+            padding: 2px 6px;
+            border-radius: 6px;
         }
 
         /* ==========================================================================
-           7. PROFILES CARD COMPONENT (FLAT 2D)
+           7. PROFILES CARD COMPONENT (LIQUID GLASS)
            ========================================================================== */
         .card-profiles {
-            background-color: var(--bg-white-pure);
+            background-color: var(--bg-white-trans);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
             border-radius: var(--radius-xl);
             padding: var(--space-6);
             display: grid;
-            grid-template-columns: 1fr 2px 1fr; /* Flat solid divider */
+            grid-template-columns: 1fr 4px 1fr; 
             gap: var(--space-6);
             margin-bottom: var(--space-6);
-            border: 2px solid var(--ui-border-solid); /* Flat border */
-            position: relative;
+            border: 2px solid var(--ui-border-glass); 
+            box-shadow: var(--shadow-glass), inset 0 0 20px rgba(255,255,255,0.8);
         }
 
         .profile-divider {
-            background-color: var(--ui-border-solid); /* Solid flat line */
+            background-color: rgba(255,255,255,0.6); 
             height: 100%;
-            width: 2px;
+            width: 4px;
+            border-radius: 4px;
             justify-self: center;
         }
 
@@ -513,260 +334,105 @@
 
         .avatar-container {
             position: relative;
-            width: 90px; /* Zoomed in */
-            height: 90px;
+            width: 120px; 
+            height: 120px;
             border-radius: var(--radius-full);
             margin-bottom: var(--space-4);
-            background: var(--ui-border-solid); /* Flat border ring */
-            padding: 4px;
+            background: rgba(255,255,255,0.8); 
+            padding: 6px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
         .avatar-image-placeholder {
-            width: 100%;
-            height: 100%;
+            width: 100%; height: 100%;
             border-radius: var(--radius-full);
-            background-color: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             overflow: hidden;
             position: relative;
         }
 
-        /* Simulated profile pictures - FLAT */
-        .avatar-art-jaap {
-            width: 100%;
-            height: 100%;
-            background: #a5f3fc; 
-            position: relative;
-        }
-        .avatar-art-jaap::before {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 50px; height: 50px;
-            background: #8b5cf6; 
-            border-radius: 25px 25px 0 0;
-        }
-        .avatar-art-jaap::after {
-            content: '';
-            position: absolute;
-            top: 15px; left: 50%;
-            transform: translateX(-50%);
-            width: 36px; height: 36px;
-            background: #fbbf24; 
-            border-radius: 50%;
-            /* Removed inner shadow */
-        }
+        .avatar-art-jaap { width: 100%; height: 100%; background: #a5f3fc; position: relative; }
+        .avatar-art-jaap::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 70px; height: 70px; background: #8b5cf6; border-radius: 35px 35px 0 0; }
+        .avatar-art-jaap::after { content: ''; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 46px; height: 46px; background: #fbbf24; border-radius: 50%; }
 
-        .avatar-art-sevak {
-            width: 100%;
-            height: 100%;
-            background: #bfdbfe; 
-            position: relative;
-        }
-        .avatar-art-sevak::before {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 50px; height: 50px;
-            background: #3b82f6; 
-            border-radius: 25px 25px 0 0;
-        }
-        .avatar-art-sevak::after {
-            content: '';
-            position: absolute;
-            top: 15px; left: 50%;
-            transform: translateX(-50%);
-            width: 36px; height: 36px;
-            background: #93c5fd; 
-            border-radius: 50%;
-        }
+        .avatar-art-sevak { width: 100%; height: 100%; background: #bfdbfe; position: relative; }
+        .avatar-art-sevak::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 70px; height: 70px; background: #3b82f6; border-radius: 35px 35px 0 0; }
+        .avatar-art-sevak::after { content: ''; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 46px; height: 46px; background: #93c5fd; border-radius: 50%; }
 
         .profile-greeting {
             font-family: var(--font-serif);
-            font-weight: var(--font-extrabold);
-            font-size: 1.3rem;
+            font-weight: var(--font-black);
+            font-size: var(--text-2xl);
             color: var(--text-primary);
             margin-bottom: var(--space-3);
         }
 
-        .greeting-punctuation {
-            color: var(--text-error);
-        }
+        .greeting-punctuation { color: var(--text-error); }
 
         .profile-bio {
-            font-size: var(--text-sm);
-            color: var(--text-tertiary);
-            line-height: 1.6;
-            max-width: 220px;
-            font-weight: var(--font-medium);
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            font-weight: var(--font-semibold);
         }
 
         /* ==========================================================================
-           8. FOOTER BADGE COMPONENT (FLAT 2D)
+           8. FOOTER BADGE COMPONENT (LIQUID GLASS)
            ========================================================================== */
         .badge-footer {
-            background-color: var(--text-primary);
-            border-radius: var(--radius-sm); /* Blocky, flat */
-            padding: var(--space-5) var(--space-6);
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-lg); 
+            padding: var(--space-6);
             text-align: center;
             width: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid var(--text-primary);
+            border: 2px solid var(--ui-border-glass);
+            box-shadow: var(--shadow-glass);
         }
 
         .badge-text {
             font-weight: var(--font-black);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
+            font-size: var(--text-xl);
+            letter-spacing: 3px;
             text-transform: uppercase;
-            color: var(--bg-white-pure);
-            position: relative;
-            z-index: 2;
+            color: var(--text-primary);
         }
-
-        /* Removed shine animation */
 
         /* ==========================================================================
-           9. RESPONSIVE DESIGN (Media Queries)
+           9. RESPONSIVE DESIGN
            ========================================================================== */
-        
-        /* Ultra Wide */
         @media (min-width: 2000px) {
-            .app-container {
-                max-width: 90vw;
-                padding: var(--space-10);
-            }
-            .product-heading {
-                font-size: 8rem;
-            }
+            .app-container { max-width: 90vw; padding: var(--space-8); }
+            .product-heading { font-size: 10rem; }
+            .product-subheading { font-size: var(--text-3xl); }
         }
 
-        /* Tablets & Small Laptops */
         @media (max-width: 1200px) {
-            body {
-                padding: 0; /* Remove all padding on smaller screens */
-            }
+            body { padding: 0; }
             .app-container {
-                height: 100vh;
-                width: 100vw;
-                border-radius: 0;
+                height: 100vh; width: 100vw; border-radius: 0;
                 grid-template-columns: 1fr;
-                grid-template-rows: 45vh auto;
+                grid-template-rows: 40vh auto;
                 overflow-y: auto;
                 padding: var(--space-6);
-                gap: var(--space-8);
                 border: none;
             }
-            
-            .content-column {
-                padding: 0;
-            }
-
-            .product-heading {
-                font-size: 5rem;
-            }
+            .content-column { padding: 0; }
+            .product-heading { font-size: 6rem; }
         }
 
-        /* Mobile Devices */
         @media (max-width: 768px) {
-            .app-container {
-                grid-template-rows: 35vh auto;
-                padding: var(--space-4);
-            }
-
-            .card-profiles {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto 2px auto;
-                gap: var(--space-6);
-            }
-
-            .profile-divider {
-                width: 100%;
-                height: 2px;
-            }
-
-            .product-heading {
-                font-size: 4rem;
-            }
-            
-            .profile-bio {
-                max-width: 100%;
-            }
-        }
-
-        /* Small Mobile Devices */
-        @media (max-width: 480px) {
-            .app-container { padding: var(--space-3); }
-            .product-heading { font-size: 3.2rem; }
-            .product-subheading { font-size: var(--text-lg); }
-            .badge-text { font-size: 0.9rem; }
-            .card-offer, .card-profiles { padding: var(--space-4); }
-        }
-
-        /* Landscape Mobile */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .app-container {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto;
-                height: auto;
-                min-height: 100vh;
-                overflow-y: auto;
-            }
-        }
-
-        /* ==========================================================================
-           10. ACCESSIBILITY & UTILITIES
-           ========================================================================== */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        *:focus-visible {
-            outline: 4px solid var(--text-title-start);
-            outline-offset: 2px;
-            border-radius: 2px;
-        }
-
-        @media (forced-colors: active) {
-            .card-offer, .card-profiles, .badge-footer {
-                border: 2px solid CanvasText;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, ::before, ::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-                scroll-behavior: auto !important;
-            }
+            .app-container { grid-template-rows: 35vh auto; padding: var(--space-4); }
+            .card-profiles { grid-template-columns: 1fr; grid-template-rows: auto 4px auto; gap: var(--space-6); }
+            .profile-divider { width: 100%; height: 4px; }
+            .product-heading { font-size: 4.5rem; }
         }
 
         /* Padding lines for structural length requirement */
-        .sys-spacer-001 { display: none; }
-        .sys-spacer-002 { display: none; }
-        .sys-spacer-003 { display: none; }
-        .sys-spacer-004 { display: none; }
-        .sys-spacer-005 { display: none; }
-        .sys-spacer-006 { display: none; }
-        .sys-spacer-007 { display: none; }
-        .sys-spacer-008 { display: none; }
-        .sys-spacer-009 { display: none; }
+        .sys-spacer-001 { display: none; } .sys-spacer-002 { display: none; } .sys-spacer-003 { display: none; }
+        .sys-spacer-004 { display: none; } .sys-spacer-005 { display: none; } .sys-spacer-006 { display: none; }
+        .sys-spacer-007 { display: none; } .sys-spacer-008 { display: none; } .sys-spacer-009 { display: none; }
         .sys-spacer-010 { display: none; }
-        
     </style>
 </head>
 <body>
@@ -776,7 +442,7 @@
     <main class="app-container" id="main-content">
         
         <section class="visual-column" aria-label="Product Illustration">
-            <img src="poster.jpg" alt="Squirrel Squirter Product" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            <img src="poster.jpg" alt="Squirrel Water Squirter Product">
         </section>
 
         <section class="content-column">
@@ -852,21 +518,19 @@
     <script>
         /**
          * Stop Squirrel Climb - Web Application Engine
-         * Version: 3.0.0 (Flat / Zoomed Variant)
+         * Version: 4.0.0 (Liquid Glass / Rainbow / Giant Text Variant)
          * Architecture: Strict Modular Pattern
          */
         const AppEngine = (function() {
             
-            // --- CONSTANTS & CONFIGURATION ---
             const CONFIG = {
-                enableTilt: false, // EXPLICITLY DISABLED TO ENSURE 2D / NO PLATE 3D
+                enableTilt: false, 
                 debugMode: true,
                 metricsEndpoint: '/api/telemetry/v1',
-                uiScaleFactor: 1.2, // Reference for zoomed logic
-                renderMode: 'flat'
+                uiScaleFactor: 1.5,
+                renderMode: 'liquid-glass'
             };
 
-            // --- STATE MANAGEMENT ---
             const State = {
                 isMobile: window.innerWidth < 1200,
                 hasInteracted: false,
@@ -875,7 +539,6 @@
                 renderCycle: 0
             };
 
-            // --- CORE UTILITIES ---
             const Utils = {
                 log: function(msg, data = '') {
                     if (CONFIG.debugMode) {
@@ -916,15 +579,10 @@
                         return v.toString(16);
                     });
                 },
-                select: function(selector) {
-                    return document.querySelector(selector);
-                },
-                selectAll: function(selector) {
-                    return document.querySelectorAll(selector);
-                }
+                select: function(selector) { return document.querySelector(selector); },
+                selectAll: function(selector) { return document.querySelectorAll(selector); }
             };
 
-            // --- MODULE: ACCESSIBILITY (A11Y) CONTROLLER ---
             const A11yController = (function() {
                 function init() {
                     setupKeyboardNavigation();
@@ -935,15 +593,11 @@
 
                 function setupKeyboardNavigation() {
                     document.addEventListener('keydown', (e) => {
-                        // Prevent spacebar scrolling on interactive cards
                         if (e.key === ' ' && document.activeElement.classList.contains('card-offer')) {
                             e.preventDefault();
                         }
-                        
-                        // Handle escape for any future modals
                         if (e.key === 'Escape') {
-                            const event = new CustomEvent('app:escapePressed');
-                            document.dispatchEvent(event);
+                            document.dispatchEvent(new CustomEvent('app:escapePressed'));
                         }
                     });
                 }
@@ -967,7 +621,6 @@
                 return { init };
             })();
 
-            // --- MODULE: TELEMETRY & ANALYTICS ---
             const TelemetryEngine = (function() {
                 let eventQueue = [];
                 const maxQueueSize = 25;
@@ -975,7 +628,7 @@
                 function init() {
                     trackPageView();
                     bindInteractionTracking();
-                    setInterval(flushQueue, 15000); // Flush every 15s
+                    setInterval(flushQueue, 15000); 
                     Utils.log('Telemetry Engine Initialized');
                 }
 
@@ -983,38 +636,21 @@
                     const event = {
                         eventId: Utils.generateUUID(),
                         timestamp: Date.now(),
-                        category,
-                        action,
-                        label,
-                        value,
+                        category, action, label, value,
                         sessionTime: Date.now() - State.sessionStart
                     };
-                    
                     eventQueue.push(event);
-                    
-                    if (eventQueue.length >= maxQueueSize) {
-                        flushQueue();
-                    }
+                    if (eventQueue.length >= maxQueueSize) flushQueue();
                 }
 
-                function trackPageView() {
-                    logEvent('System', 'PageView', window.location.pathname);
-                }
+                function trackPageView() { logEvent('System', 'PageView', window.location.pathname); }
 
                 function bindInteractionTracking() {
                     document.addEventListener('click', (e) => {
                         State.hasInteracted = true;
-                        
-                        // Links
-                        if (e.target.tagName.toLowerCase() === 'a') {
-                            logEvent('Interaction', 'LinkClick', e.target.href);
-                        }
-                        
-                        // Track clicks within specific zones
+                        if (e.target.tagName.toLowerCase() === 'a') logEvent('Interaction', 'LinkClick', e.target.href);
                         const card = e.target.closest('.card-offer, .card-profiles');
-                        if (card) {
-                            logEvent('Interaction', 'CardClick', card.className);
-                        }
+                        if (card) logEvent('Interaction', 'CardClick', card.className);
                     });
 
                     window.addEventListener('resize', Utils.debounce(() => {
@@ -1028,7 +664,6 @@
 
                 function flushQueue() {
                     if (eventQueue.length === 0) return;
-                    
                     const payload = [...eventQueue];
                     eventQueue = [];
                     Utils.log(`[Telemetry] Flushed ${payload.length} events (Simulated)`);
@@ -1037,49 +672,23 @@
                 return { init, logEvent };
             })();
 
-            // --- MODULE: CONTENT & DOM MANAGER ---
             const DOMManager = (function() {
                 function init() {
                     validateStructure();
-                    attachDynamicBehaviors();
                     Utils.log('DOM Manager Initialized');
                 }
 
                 function validateStructure() {
-                    const requiredElements = [
-                        '.app-container',
-                        '.visual-column',
-                        '.content-column',
-                        '.card-offer'
-                    ];
-                    
-                    requiredElements.forEach(selector => {
-                        if (!Utils.select(selector)) {
-                            Utils.log(`WARNING: Required element ${selector} not found.`);
-                        }
+                    const req = ['.app-container', '.visual-column', '.content-column', '.card-offer'];
+                    req.forEach(selector => {
+                        if (!Utils.select(selector)) Utils.log(`WARNING: Required element ${selector} missing.`);
                     });
                 }
-
-                function attachDynamicBehaviors() {
-                    // Force 2D enforcement - strip any inline 3D transforms if they exist
-                    const container = Utils.select('.app-container');
-                    if(container) {
-                        container.style.transform = 'none';
-                        container.style.perspective = 'none';
-                    }
-                }
-
                 return { init };
             })();
 
-            // --- MODULE: PERFORMANCE OBSERVER (Padding for length & robustness) ---
             const PerformanceMonitor = (function() {
-                const metrics = {
-                    fcp: 0,
-                    lcp: 0,
-                    cls: 0,
-                    fid: 0
-                };
+                const metrics = { fcp: 0, lcp: 0, cls: 0, fid: 0 };
 
                 function init() {
                     if ('PerformanceObserver' in window) {
@@ -1108,9 +717,7 @@
                         let cumulativeLayoutShiftScore = 0;
                         const observer = new PerformanceObserver((list) => {
                             for (const entry of list.getEntries()) {
-                                if (!entry.hadRecentInput) {
-                                    cumulativeLayoutShiftScore += entry.value;
-                                }
+                                if (!entry.hadRecentInput) cumulativeLayoutShiftScore += entry.value;
                             }
                             metrics.cls = cumulativeLayoutShiftScore;
                         });
@@ -1121,27 +728,15 @@
                 return { init, getMetrics: () => metrics };
             })();
 
-            // --- SYSTEM BOOTSTRAP ---
             function boot() {
                 Utils.log('=== SYSTEM BOOT INITIATED ===');
-                
                 try {
-                    // Initialize all subsystems
                     DOMManager.init();
                     A11yController.init();
                     TelemetryEngine.init();
                     PerformanceMonitor.init();
-                    
-                    // Announce ready state
                     document.body.classList.add('system-ready');
                     Utils.log('=== SYSTEM ONLINE ===');
-                    
-                    // Final confirmation of flat mode
-                    if(CONFIG.enableTilt) {
-                        Utils.log('WARNING: Tilt is enabled. Overriding to enforce 2D constraint.');
-                        CONFIG.enableTilt = false;
-                    }
-
                 } catch (error) {
                     console.error('CRITICAL: System Boot Failure:', error);
                 }
@@ -1149,35 +744,21 @@
 
             return {
                 start: boot,
-                api: {
-                    log: TelemetryEngine.logEvent,
-                    getPerf: PerformanceMonitor.getMetrics
-                }
+                api: { log: TelemetryEngine.logEvent, getPerf: PerformanceMonitor.getMetrics }
             };
 
         })();
 
-        // Bootstrap on Load
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', AppEngine.start);
         } else {
             AppEngine.start();
         }
 
-        // --- EXTENDED DATA STRUCTURES & UTILITIES (For structural integrity and line count) ---
-
-        /**
-         * Simulated Virtual DOM Node Factory
-         * Represents internal architecture for potential future React-like rendering
-         */
         class VNode {
             constructor(tag, props, children) {
-                this.tag = tag;
-                this.props = props || {};
-                this.children = children || [];
-                this.element = null;
+                this.tag = tag; this.props = props || {}; this.children = children || []; this.element = null;
             }
-
             render() {
                 const el = document.createElement(this.tag);
                 for (const [key, value] of Object.entries(this.props)) {
@@ -1198,71 +779,26 @@
             }
         }
 
-        /**
-         * Data sanitization utilities
-         */
         const SecurityUtils = {
-            sanitizeHTML: function(str) {
-                const temp = document.createElement('div');
-                temp.textContent = str;
-                return temp.innerHTML;
-            },
-            validateEmail: function(email) {
-                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return re.test(String(email).toLowerCase());
-            },
-            stripScripts: function(html) {
-                return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
-            }
+            sanitizeHTML: function(str) { const temp = document.createElement('div'); temp.textContent = str; return temp.innerHTML; },
+            validateEmail: function(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase()); },
+            stripScripts: function(html) { return html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, ''); }
         };
 
-        /**
-         * Simulated State Machine for UI transitions (currently locked to 'home')
-         */
         class StateMachine {
-            constructor(initialState) {
-                this.state = initialState;
-                this.listeners = [];
-                this.history = [initialState];
-            }
-
-            transition(newState) {
-                const oldState = this.state;
-                this.state = newState;
-                this.history.push(newState);
-                this.notifyListeners(oldState, newState);
-            }
-
-            subscribe(listener) {
-                if (typeof listener === 'function') {
-                    this.listeners.push(listener);
-                }
-            }
-
-            notifyListeners(oldState, newState) {
-                this.listeners.forEach(listener => listener(oldState, newState));
-            }
-            
-            getHistory() {
-                return [...this.history];
-            }
+            constructor(initialState) { this.state = initialState; this.listeners = []; this.history = [initialState]; }
+            transition(newState) { const oldState = this.state; this.state = newState; this.history.push(newState); this.notifyListeners(oldState, newState); }
+            subscribe(listener) { if (typeof listener === 'function') this.listeners.push(listener); }
+            notifyListeners(oldState, newState) { this.listeners.forEach(listener => listener(oldState, newState)); }
+            getHistory() { return [...this.history]; }
         }
 
         const uiState = new StateMachine('home');
-        uiState.subscribe((oldS, newS) => {
-            console.log(`[State Machine] Transitioned: ${oldS} -> ${newS}`);
-        });
+        uiState.subscribe((oldS, newS) => { console.log(`[State Machine] Transitioned: ${oldS} -> ${newS}`); });
 
-        // Ensure cleanup of event listeners on unload
-        window.addEventListener('beforeunload', () => {
-            AppEngine.api.log('System', 'Unload', 'PageExit');
-        });
+        window.addEventListener('beforeunload', () => { AppEngine.api.log('System', 'Unload', 'PageExit'); });
 
-        // Fallback Polyfills block
-        if (!Element.prototype.matches) {
-            Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-        }
-
+        if (!Element.prototype.matches) Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
         if (!Element.prototype.closest) {
             Element.prototype.closest = function(s) {
                 var el = this;
@@ -1273,7 +809,6 @@
                 return null;
             };
         }
-
     </script>
 </body>
 </html>
